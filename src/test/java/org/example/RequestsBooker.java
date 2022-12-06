@@ -64,7 +64,7 @@ public class RequestsBooker {
                 .contentType(ContentType.JSON)
                 .get("https://restful-booker.herokuapp.com/booking/"+createBooking)
                 .then()
-                .statusCode(500)
+                .statusCode(400)
                 .extract()
                 .response().toString();
 
