@@ -1,3 +1,5 @@
+package org.example;
+
 import org.example.RequestsBooker;
 import org.junit.Test;
 
