@@ -23,9 +23,7 @@ public class TestNegative {
 
     String bodyCreateAndGetBookingWrong = "{\n" +
             "    \"firstname\" : \"Jim\",\n" +
-            "    \"lastname\" : \"Brown\",\n" +
 
-            "    \"bookingdates\" : {\n" +
             "        \"checkin\" : \"2018-01-01\",\n" +
             "        \"checkout\" : \"2019-01-01\"\n" +
             "    },\n" +
@@ -46,7 +44,7 @@ public class TestNegative {
         String createdBooking = RequestsBooker.createBooking(bodyCreateAndGetBookingWrong);
         System.out.println("ID Booking - "+createdBooking);
 
-        String getBooking = RequestsBooker.getBooking(createdBooking, 400);
+        String getBooking = RequestsBooker.getBooking(createdBooking, 500);
         System.out.println("getBooking test - "+getBooking);
 
     }
@@ -67,7 +65,7 @@ public class TestNegative {
         System.out.println("токен пользователя - "+tokenBooking);
 
 
-        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, String.valueOf(32), 404);
+        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, String.valueOf(375777772), 404);
         System.out.println("Test deleteBooking"+ deleteBooking);
     }
 }
