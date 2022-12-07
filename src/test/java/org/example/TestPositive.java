@@ -75,7 +75,7 @@ public class TestPositive {
         System.out.println("токен пользователя - "+tokenBooking);
 
 
-        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, createdBooking, 200);
+        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, createdBooking, 201);
         System.out.println("Test deleteBooking"+ deleteBooking);
     }
 
