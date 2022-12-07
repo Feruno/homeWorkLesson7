@@ -43,10 +43,16 @@ public class TestNegative {
 
     @Test
     public void createBooking(){
-        String createdBooking = RequestsBooker.createBooking(bodyCreateAndGetBooking);
+        String createdBooking = RequestsBooker.createBooking(bodyCreateAndGetBookingWrong);
         System.out.println("ID Booking - "+createdBooking);
 
-        String getBooking = RequestsBooker.getBookingWrong(createdBooking, bodyCreateAndGetBookingWrong);
+        String getBooking = RequestsBooker.getBooking(createdBooking, 400);
+        System.out.println("getBooking test - "+getBooking);
+
+    }
+    @Test
+    public void getBooking(){
+        String getBooking = RequestsBooker.getBooking(String.valueOf(1243421), 404);
         System.out.println("getBooking test - "+getBooking);
 
     }
@@ -61,7 +67,7 @@ public class TestNegative {
         System.out.println("токен пользователя - "+tokenBooking);
 
 
-        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, createdBooking);
+        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, String.valueOf(32), 404);
         System.out.println("Test deleteBooking"+ deleteBooking);
     }
 }

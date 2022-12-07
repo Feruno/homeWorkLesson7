@@ -40,15 +40,15 @@ public class RequestsBooker {
     }
 
 
-    public static String getBooking(String createBooking, String recBody){
+    public static String getBooking(String createBooking, Integer statusCod){
         String responsePost = RestAssured.given()
                 .baseUri("https://restful-booker.herokuapp.com/booking/"+createBooking)
-                .body(recBody)
+
                 .log().body(true)
                 .contentType(ContentType.JSON)
                 .get("https://restful-booker.herokuapp.com/booking/"+createBooking)
                 .then()
-                .statusCode(200)
+                .statusCode(statusCod)
                 .extract()
                 .response().toString();
 
@@ -56,21 +56,7 @@ public class RequestsBooker {
         return responsePost;
     }
 
-    public static String getBookingWrong(String createBooking, String recBody){
-        String responsePost = RestAssured.given()
-                .baseUri("https://restful-booker.herokuapp.com/booking/"+createBooking)
-                .body(recBody)
-                .log().body(true)
-                .contentType(ContentType.JSON)
-                .get("https://restful-booker.herokuapp.com/booking/"+createBooking)
-                .then()
-                .statusCode(400)
-                .extract()
-                .response().toString();
 
-        System.out.println("getBooking - " +responsePost);
-        return responsePost;
-    }
 
 
     public static String putBooking(String recBody,String tokenAut, String createBooking){
@@ -92,16 +78,16 @@ public class RequestsBooker {
         return responsePost;
     }
 
-    public static String deleteBooking(String tokenAut, String createBooking){
+    public static String deleteBooking(String tokenAut, String createBooking, Integer stacusCod){
         String responsePost = RestAssured.given()
                 .baseUri("https://restful-booker.herokuapp.com/booking/")
-                .when()
                 .headers("Cookie","token="+tokenAut)
+                .when()
                 .delete("https://restful-booker.herokuapp.com/booking/"+createBooking)
                 .then()
 
                 .log().body(true)
-                .statusCode(200)
+                .statusCode(stacusCod)
                 .extract()
                 .response().asString();
 

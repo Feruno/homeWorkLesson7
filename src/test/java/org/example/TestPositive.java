@@ -49,7 +49,7 @@ public class TestPositive {
         String createdBooking = RequestsBooker.createBooking(bodyCreateAndGetBooking);
         System.out.println("ID Booking - "+createdBooking);
 
-        String getBooking = RequestsBooker.getBooking(createdBooking, bodyCreateAndGetBooking);
+        String getBooking = RequestsBooker.getBooking(createdBooking, 200);
         System.out.println("getBooking test - "+getBooking);
 
     }
@@ -75,7 +75,7 @@ public class TestPositive {
         System.out.println("токен пользователя - "+tokenBooking);
 
 
-        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, createdBooking);
+        String deleteBooking = RequestsBooker.deleteBooking(tokenBooking, createdBooking, 200);
         System.out.println("Test deleteBooking"+ deleteBooking);
     }
 
